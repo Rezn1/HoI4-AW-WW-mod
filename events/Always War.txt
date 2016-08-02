@@ -1,0 +1,815 @@
+﻿#n
+add_namespace = aww
+
+#random war:
+country_event = {
+	id = aww.0
+	title = aww.0.t
+	desc = aww.0.d
+	#picture = ??
+	
+	trigger = {
+		any_neighbor_country = {
+			aww_can_declare = yes
+		}
+	}
+	mean_time_to_happen = {
+		days = 20
+	}
+	
+	option = {
+		name = aww.0.a
+		hidden_effect = { 
+			random_neighbor_country = {
+				limit = {
+					aww_can_declare = yes
+				}
+				#declare_war_on = {
+				#	target = ROOT
+				#	type = annex_everything
+				#}
+				country_event = { days = 0 id = aww.1 }
+			}
+		}	
+	}
+}
+
+country_event = {
+	id = aww.1
+	title = aww.1.t
+	desc = aww.1.d
+	#picture = ??
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = aww.1.a
+		effect_tooltip = {
+			declare_war_on = {
+				target = FROM
+				type = annex_everything
+			}
+		}
+	}
+}
+
+#special wars:
+
+#cuba-haiti-dominican republic
+country_event = {
+	id = aww.2
+	title = aww.2.t
+	desc = aww.2.d
+	#picture = ??
+	
+	trigger = {
+		OR = {
+			tag = CUB
+			tag = HAI
+			tag = DOM
+		}
+		any_country = {
+			OR = {
+				tag = CUB
+				tag = HAI
+				tag = DOM
+			}
+			aww_can_declare = yes
+		}
+	}
+	mean_time_to_happen = {
+		days = 7
+	}
+	
+	option = {
+		name = aww.2.a
+		hidden_effect = { 
+			random_country = {
+				limit = {
+					OR = {
+						tag = CUB
+						tag = HAI
+						tag = DOM
+					}
+					aww_can_declare = yes
+				}
+				declare_war_on = {
+					target = ROOT
+					type = annex_everything
+				}
+				country_event = { days = 1 id = aww.1 }
+			}
+		}	
+	}
+}
+
+#if there is a winner or 1940 (+ 1/2?):
+#USCA vs cuba(...)
+country_event = {
+	id = aww.3
+	title = aww.3.t
+	desc = aww.3.d
+	#picture = ??
+	
+	trigger = {
+		OR = {
+			tag = CUB
+			tag = HAI
+			tag = DOM
+		}
+		OR = {
+			has_war = no
+			has_war_with = COS
+			has_war_with = ELS
+			has_war_with = GUA
+			has_war_with = HON
+			has_war_with = NIC
+			date > 1940.1.1
+		}
+		all_country = {
+			OR = {
+				tag = CUB
+				tag = HAI
+				tag = DOM
+			}
+			aww_can_declare = no
+		}
+		any_country = {
+			OR = {
+				tag = COS
+				tag = ELS
+				tag = GUA
+				tag = HON
+				tag = NIC
+			}
+			aww_can_declare = yes
+		}
+	}
+	mean_time_to_happen = {
+		days = 7
+	}
+	
+	option = {
+		name aww.2.a
+		hidden_effect = { 
+			random_country = {
+				limit = {
+					OR = {
+						tag = COS
+						tag = ELS
+						tag = GUA
+						tag = HON
+						tag = NIC
+					}
+					aww_can_declare = yes
+				}
+				declare_war_on = {
+					target = ROOT
+					type = annex_everything
+				}
+				country_event = { days = 1 id = aww.1 }
+			}
+		}
+	}
+}
+
+#mexico
+country_event = {
+	id = aww.4
+	title = aww.4.t
+	desc = aww.4.d
+	#picture = ??
+	
+	trigger = {
+		OR = {
+			tag = CUB
+			tag = HAI
+			tag = DOM
+		}
+		OR = {
+			has_war = no
+			date > 1940.6.1
+		}
+		all_country = {
+			OR = {
+				tag = CUB
+				tag = HAI
+				tag = DOM
+				tag = COS
+				tag = ELS
+				tag = GUA
+				tag = HON
+				tag = NIC
+			}
+			aww_can_declare = no
+		}
+		MEX = {
+			aww_can_declare = yes
+		}
+	}
+	mean_time_to_happen = {
+		days = 7
+	}
+	
+	option = {
+		name aww.4.a
+		hidden_effect = { 
+			MEX = {
+				declare_war_on = {
+					target = ROOT
+					type = annex_everything
+				}
+				country_event = { days = 1 id = aww.1 }
+			}
+		}
+	}
+}
+
+country_event = {
+	id = aww.5
+	title = aww.5.t
+	desc = aww.5.d
+	#picture = ??
+	
+	trigger = {
+		OR = {
+			tag = CUB
+			tag = HAI
+			tag = DOM
+		}
+		OR = {
+			has_war = no
+			date > 1941.1.1
+		}
+		all_country = {
+			OR = {
+				tag = CUB
+				tag = HAI
+				tag = DOM
+				tag = COS
+				tag = ELS
+				tag = GUA
+				tag = HON
+				tag = NIC
+				tag = MEX
+			}
+			aww_can_declare = no
+		}
+		any_country = {
+			capital_scope = {
+				OR = {
+					is_on_continent = north_america
+					is_on_continent = south_america
+				}
+			}
+			aww_can_declare = yes
+		}
+	}
+	mean_time_to_happen = {
+		days = 7
+	}
+	
+	option = {
+		name aww.2.a
+		random_country = {
+			limit = {
+				capital_scope = {
+					OR = {
+						is_on_continent = north_america
+						is_on_continent = south_america
+					}
+				}
+			}
+			declare_war_on = {
+				target = ROOT
+				type = annex_everything
+			}
+		}
+	}
+}
+
+#GER on POL
+country_event = {
+	id = aww.6
+	title = aww.6.t
+	desc = aww.6.d
+
+	is_triggered_only = yes
+	
+	option = {
+		name = aww.6.a
+		declare_war_on = {
+			target = POL
+			type = annex_everything
+		}
+		set_global_flag = aww_world_war_active
+		hidden_effect = {
+			POL = { country_event = { days = 0 id = aww.7 } }
+			SOV = { country_event = { days = 1 id = aww.9 } }
+			FRA = { country_event = { days = 1 id = aww.11 } }
+			if = {
+				limit = { FRA = { exists = no }  }
+				ENG = { country_event = { days = 1 id = aww.13 } }
+			}
+		}
+	}
+}
+
+country_event = {
+	id = aww.7
+	title = aww.7.t
+	desc = aww.7.d
+	#picture = ??
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = aww.7.a	
+	}
+}
+
+country_event = {
+	id = aww.8
+	title = aww.8.t
+	desc = aww.8.d
+
+	trigger = {
+		NOT = { has_global_flag = aww_world_war_active }
+		date > 1939.9.1
+		OR = {
+			GER = { exists = no }
+			AND = {
+				tag = GER
+				OR = {
+					date > 1939.12.24
+					POL = { exists = no }
+					has_war_with = POL
+					has_war_together_with = POL
+					is_in_faction_with = POL
+					#has_non_aggression_pact_with = POL
+				}
+			}
+		}
+	}
+	
+	fire_only_once = yes
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = { #peace in our time
+		name = aww.8.a
+		set_global_flag = aww_world_war_active
+		hidden_effect = {
+			SOV = { country_event = { days = 1 id = aww.9 } }
+			FRA = { country_event = { days = 1 id = aww.11 } }
+		}
+	}
+}
+
+#SOV on POL
+country_event = {
+	id = aww.9
+	title = aww.9.t
+	desc = aww.9.d
+
+	is_triggered_only = yes
+	
+	option = {
+		name = aww.9.a
+		trigger = { POL = { aww_can_declare = yes } }
+		declare_war_on = {
+			target = POL
+			type = annex_everything
+		}
+		hidden_effect = { POL = { country_event = { days = 0 id = aww.10 } } }
+	}
+	option = {
+		name = aww.9.b
+		trigger = { POL = { aww_can_declare = no } }		
+	}
+}
+
+country_event = {
+	id = aww.10
+	title = aww.10.t
+	desc = aww.10.d
+	#picture = ??
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = aww.10.a	
+	}
+}
+
+#FRA on GER
+country_event = {
+	id = aww.11
+	title = aww.11.t
+	desc = aww.11.d
+
+	is_triggered_only = yes
+	
+	option = {
+		name = aww.11.a
+		trigger = { GER = { aww_can_declare = yes } }
+		declare_war_on = {
+			target = GER
+			type = annex_everything
+		}
+		hidden_effect = { GER = { country_event = { days = 0 id = aww.12 } } }
+		hidden_effect = { ENG = { country_event = { days = 0 id = aww.13 } } }
+	}
+	option = {
+		name = aww.11.b
+		trigger = { GER = { aww_can_declare = no } }
+		
+	}
+}
+
+country_event = {
+	id = aww.12
+	title = aww.12.t
+	desc = aww.12.d
+	#picture = ??
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = aww.12.a
+		hidden_effect = { country_event = { days = 1 id = aww.17 } }
+	}
+}
+
+#ENG on GER
+country_event = {
+	id = aww.13
+	title = aww.13.t
+	desc = aww.13.d
+
+	is_triggered_only = yes
+	
+	option = {
+		name = aww.13.a
+		trigger = { GER = { aww_can_declare = yes } }
+		declare_war_on = {
+			target = GER
+			type = annex_everything
+		}
+		hidden_effect = { GER = { country_event = { days = 0 id = aww.12 } } }
+		
+	}
+	option = {
+		name = aww.13.b
+		trigger = { GER = { aww_can_declare = no } }		
+	}
+}
+
+country_event = {
+	id = aww.14
+	title = aww.14.t
+	desc = aww.14.d
+	#picture = ??
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = aww.14.a	
+	}
+}
+
+#ENG on FRA
+country_event = {
+	id = aww.15
+	title = aww.15.t
+	desc = aww.15.d
+
+	is_triggered_only = yes
+	
+	option = {
+		name = aww.15.a
+		trigger = { FRA = { aww_can_declare = yes } }
+		declare_war_on = {
+			target = FRA
+			type = annex_everything
+		}
+		hidden_effect = { FRA = { country_event = { days = 0 id = aww.16 } } }
+	}
+	option = {
+		name = aww.15.b
+		trigger = { FRA = { aww_can_declare = no } }		
+	}
+}
+
+country_event = {
+	id = aww.16
+	title = aww.16.t
+	desc = aww.16.d
+	#picture = ??
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = aww.16.a	
+	}
+}
+
+#GER on BENELUX
+country_event = {
+	id = aww.17
+	title = aww.17.t
+	desc = aww.17.d
+
+	is_triggered_only = yes
+	
+	option = {
+		name = aww.17.a
+		trigger = { 
+			OR = {
+				BEL = { aww_can_declare = yes }
+				HOL = { aww_can_declare = yes }
+				LUX = { aww_can_declare = yes }
+			}
+		}
+		if = {
+			limit = {
+				BEL = { aww_can_declare = yes }
+			}
+			declare_war_on = {
+				target = BEL
+				type = annex_everything
+			}
+			hidden_effect = { BEL = { country_event = { days = 0 id = aww.18 } } }
+		}
+		if = {
+			limit = {
+				HOL = { aww_can_declare = yes }
+			}
+			declare_war_on = {
+				target = HOL
+				type = annex_everything
+			}
+			hidden_effect = { HOL = { country_event = { days = 0 id = aww.18 } } }
+		}
+		if = {
+			limit = {
+				LUX = { aww_can_declare = yes }
+			}
+			declare_war_on = {
+				target = LUX
+				type = annex_everything
+			}
+			hidden_effect = { LUX = { country_event = { days = 0 id = aww.18 } } }
+		}
+		
+		hidden_effect = { FRA = { country_event = { days = 0 id = aww.16 } } }
+	}
+	option = {
+		name = aww.17.b
+		trigger = {
+			AND = {
+				BEL = { aww_can_declare = no }
+				HOL = { aww_can_declare = no }
+				LUX = { aww_can_declare = no }
+			}
+		}		
+	}
+}
+
+country_event = {
+	id = aww.18
+	title = aww.18.t
+	desc = aww.18.d
+	#picture = ??
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = aww.18.a	
+	}
+}#19#20
+
+#majors vs USA
+country_event = {
+	id = aww.21
+	title = aww.21.t
+	desc = aww.21.d
+
+	trigger = {
+		has_global_flag = aww_world_war_active
+		any_country = {
+			capital_scope = { is_on_continent = europe }
+			has_war = yes
+		}
+	}
+	fire_only_once = yes
+	
+	
+	option = {
+		name = aww.21.a
+		hidden_effect = { 
+			random_country = {
+				limit = {
+					is_major = yes
+					aww_can_declare = yes
+				}
+				country_event = { days = 0 id = aww.22 }
+			}
+		}
+	}
+}
+
+country_event = {
+	id = aww.22
+	title = aww.22.t
+	desc = aww.22.d
+
+	is_triggered_only = yes
+	
+	option = {
+		name = aww.22.a
+		declare_war_on = {
+				target = USA
+				type = annex_everything
+		}
+		hidden_effect = { USA = { country_event = { days = 0 id = aww.23 } } }
+	}
+}
+
+country_event = {
+	id = aww.23
+	title = aww.23.t
+	desc = aww.23.d
+
+	is_triggered_only = yes
+	
+	option = {
+		name = aww.23.a
+		trigger = {
+			any_country = {
+				is_major = yes
+				NOT = { tag = USA }
+				USA = { aww_can_declare = yes }
+			}
+		}
+		hidden_effect = { 
+			random_country = {
+				limit = {
+					is_major = yes
+					aww_can_declare = yes
+				}
+				country_event = { days = 0 id = aww.22 }
+			}
+		}
+	}
+	
+	optrion = {
+		name = aww.23.a #the same
+		trigger = {
+			NOT = {
+				any_country = {
+					is_major = yes
+					NOT = { tag = USA }
+					USA = { aww_can_declare = yes }
+				}
+			}
+			set_global_flag = giant_awoken
+		}
+	}
+}
+
+country_event = {
+	id = aww.24
+	title = aww.24.t
+	desc = aww.24.d
+	
+	trigger = {
+		is_major = yes
+		NOT = { tag = USA }
+		USA = { aww_can_declare = yes }
+	}
+	
+	mean_time_to_happen = {
+		days = 20
+	}
+	
+	option = {
+		name = aww.20.a
+		declare_war_on = {
+			target = USA
+			type = annex_everything
+		}
+		hidden_effect = { country_event = { days = 0 id = aww.1 } }	
+	}
+}
+
+#if peace
+country_event = {
+	id = aww.30
+	title = aww.30.t
+	desc = aww.30.d
+	
+	trigger = {
+		has_war = no
+		any_country = {
+			aww_can_declare = yes
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 20
+	}
+	
+	option = {
+		name = aww.30.a
+		hidden_effect = {
+			random_country = {
+				limit = {
+					aww_can_declare = yes
+				}
+				declare_war_on = {
+					target = ROOT
+					type = annex_everything
+				}
+				country_event = { days = 0 id = aww.1 }
+			}
+		}
+	}
+}
+
+#late game majors
+country_event = {
+	id = aww.31
+	title = aww.31.t
+	desc = aww.31.d
+	
+	trigger = {
+		date > 1941.1.1
+		is_major = yes
+		any_country = {
+			is_major = yes
+			aww_can_declare = yes
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 20
+	}
+	
+	option = {
+		name = aww.31.a
+		hidden_effect = { 
+			random_country = {
+				limit = {
+					is_major
+					aww_can_declare = yes
+				}
+				declare_war_on = {
+					target = ROOT
+					type = annex_everything
+				}
+				country_event = { days = 0 id = aww.1 }
+			}
+		}		
+	}
+}
+
+
+#anti early wars
+
+#if peace in AUS
+#declare on asia
+#declare on anything
+
+#giveup macau - guangxi
+#giveup honk kong - guangxi
+#goa - raj
+#french india - raj (if don't own laos)
+#guangzhouwan - guangxi (if don't own tonkin)
+#west papua #netherlands will not give up
+#british mexico
+#labrador
+#dodecanese
+
+#ai will not give up:
+#kuwait
+#abu dhabi
+#aden
+#brit guyana
+#french guiana
+#suriname (1 civ)
+#trinidad
+
+#etc
+
+#ai will give up if:
+#capital on wrong continent
+#is at peace with all neighbours
+#low ic
+#not naval major (num_of_naval_factories)
+
+#receiver:
+#raj/china
+#neighbour

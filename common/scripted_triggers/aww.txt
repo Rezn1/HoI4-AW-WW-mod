@@ -1,0 +1,12 @@
+#n
+aww_can_declare = {
+	has_global_flag = aww_world_war_active
+	NOT = { tag = ROOT } #not self
+	NOT = { has_war_with = ROOT }
+	NOT = { has_war_together_with = ROOT } #
+	NOT = { is_in_faction_with = ROOT } #
+	#NOT = { } #
+	exists = yes
+	is_puppet = no
+	ROOT = { is_puppet = no }
+}
