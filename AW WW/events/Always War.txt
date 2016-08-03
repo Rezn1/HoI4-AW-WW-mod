@@ -24,10 +24,10 @@ country_event = {
 				limit = {
 					aww_can_declare = yes
 				}
-				#declare_war_on = {
-				#	target = ROOT
-				#	type = annex_everything
-				#}
+				declare_war_on = {
+					target = ROOT
+					type = annex_everything
+				}
 				country_event = { days = 0 id = aww.1 }
 			}
 		}	
