@@ -97,7 +97,7 @@ country_event = {
 					target = ROOT
 					type = annex_everything
 				}
-				country_event = { days = 1 id = aww.1 }
+				country_event = { days = 0 id = aww.1 }
 			}
 		}	
 	}
@@ -167,7 +167,7 @@ country_event = {
 					target = ROOT
 					type = annex_everything
 				}
-				country_event = { days = 1 id = aww.1 }
+				country_event = { days = 0 id = aww.1 }
 			}
 		}
 	}
@@ -305,11 +305,11 @@ country_event = {
 		set_global_flag = aww_world_war_active
 		hidden_effect = {
 			POL = { country_event = { days = 0 id = aww.7 } }
-			SOV = { country_event = { days = 1 id = aww.9 } }
-			FRA = { country_event = { days = 1 id = aww.11 } }
+			SOV = { country_event = { days = 2 id = aww.9 } }
+			FRA = { country_event = { days = 2 id = aww.11 } }
 			if = {
 				limit = { FRA = { exists = no }  }
-				ENG = { country_event = { days = 1 id = aww.13 } }
+				ENG = { country_event = { days = 2 id = aww.13 } }
 			}
 		}
 	}
@@ -362,8 +362,8 @@ country_event = {
 		name = aww.8.a
 		set_global_flag = aww_world_war_active
 		hidden_effect = {
-			SOV = { country_event = { days = 1 id = aww.9 } }
-			FRA = { country_event = { days = 1 id = aww.11 } }
+			SOV = { country_event = { days = 2 id = aww.9 } }
+			FRA = { country_event = { days = 2 id = aww.11 } }
 		}
 	}
 }
@@ -419,8 +419,8 @@ country_event = {
 			target = GER
 			type = annex_everything
 		}
-		hidden_effect = { GER = { country_event = { days = 0 id = aww.12 } } }
-		hidden_effect = { ENG = { country_event = { days = 0 id = aww.13 } } }
+		hidden_effect = { GER = { country_event = { days = 1 id = aww.12 } } }
+		hidden_effect = { ENG = { country_event = { days = 1 id = aww.13 } } }
 	}
 	option = {
 		name = aww.11.b
