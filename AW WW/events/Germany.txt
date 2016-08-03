@@ -902,7 +902,7 @@ country_event = {
 				}
 			}
 		}
-		add_to_faction = CZE
+		#n add_to_faction = CZE
 		CZE = {
 			add_ai_strategy = {
 				type = alliance
@@ -1035,7 +1035,7 @@ country_event = {
 				NOT = { is_in_faction_with = GER }
 				NOT = { is_in_faction_with = CZE }
 			}
-			add_to_faction = CZE
+			#n add_to_faction = CZE
 			CZE = {
 				add_ai_strategy = {
 					type = alliance
@@ -1054,9 +1054,9 @@ country_event = {
 				}
 				NOT = { is_in_faction_with = CZE }
 			}
-			create_faction = "french_alliance"
-			set_rule = { can_create_factions = yes }
-			add_to_faction = CZE
+			#n create_faction = "french_alliance"
+			#n set_rule = { can_create_factions = yes }
+			#n add_to_faction = CZE
 			CZE = {
 				add_ai_strategy = {
 					type = alliance
@@ -1100,7 +1100,7 @@ country_event = {
 		}
 		if = {
 			limit = { NOT = { is_in_faction_with = ENG } }
-			ENG = { add_to_faction = FRA }
+			#n ENG = { add_to_faction = FRA }
 			add_ai_strategy = {
 				type = alliance
 				id = "ENG"
@@ -1769,7 +1769,7 @@ country_event = {
 		hidden_effect = {
 			GER = {
 				annex_country = { target = CZE }
-				add_to_faction = HUN				
+				#n add_to_faction = HUN				
 			}
 			HUN = {
 				add_ai_strategy = {
@@ -1869,7 +1869,7 @@ country_event = {
 			limit = { country_exists = CZE }
 			annex_country = { target = CZE }
 		}
-		add_to_faction = SLO
+		#n add_to_faction = SLO
 		SLO = {
 			add_ai_strategy = {
 				type = alliance
@@ -2024,7 +2024,7 @@ country_event = {
 			}
 			every_country = {
 				limit = { is_in_faction_with = FRA NOT = { has_war_with = ENG } }
-				ENG = { add_to_faction = PREV }
+				#n ENG = { add_to_faction = PREV }
 				add_ai_strategy = {
 					type = alliance
 					id = "ENG"
@@ -2034,7 +2034,7 @@ country_event = {
 		}
 		if = {
 			limit = { FRA = { is_in_faction = no } }
-			add_to_faction = FRA
+			#n add_to_faction = FRA
 			FRA = {
 				add_ai_strategy = {
 					type = alliance
@@ -2713,7 +2713,7 @@ country_event = {
 				is_faction_leader = yes
 			}
 		}
-		ENG = { add_to_faction = TUR }
+		#n ENG = { add_to_faction = TUR }
 		TUR = {
 			add_ai_strategy = {
 				type = alliance
@@ -3149,8 +3149,8 @@ country_event = {
 					remove_from_faction = GER
 			}
 			add_national_unity = -0.2
-			create_faction = "the_berlin_moscow_axis"
-			add_to_faction = SOV
+			#n create_faction = "the_berlin_moscow_axis"
+			#n add_to_faction = SOV
 			add_named_threat = { threat = 5 name = germany.89.t }
 			every_country = {
 				limit = {
@@ -3228,7 +3228,7 @@ country_event = {
 		
 	option = {
 		name = germany.91.a
-		GER = { add_to_faction = FRA }
+		#n GER = { add_to_faction = FRA }
 		FRA = {
 			add_ai_strategy = {
 				type = alliance

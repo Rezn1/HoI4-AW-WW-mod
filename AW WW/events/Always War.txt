@@ -665,7 +665,7 @@ country_event = {
 		}
 	}
 	
-	optrion = {
+	option = {
 		name = aww.23.a #the same
 		trigger = {
 			NOT = {
@@ -675,8 +675,8 @@ country_event = {
 					USA = { aww_can_declare = yes }
 				}
 			}
-			set_global_flag = giant_awoken
 		}
+		set_global_flag = giant_awoken
 	}
 }
 
@@ -763,7 +763,7 @@ country_event = {
 		hidden_effect = { 
 			random_country = {
 				limit = {
-					is_major
+					is_major = yes
 					aww_can_declare = yes
 				}
 				declare_war_on = {
