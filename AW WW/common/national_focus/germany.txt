@@ -1163,68 +1163,111 @@ focus_tree = {
 			}
 		}	
 		completion_reward = {
+			#n: 11 civ, 6 mil, 8 slots
 			army_experience = 10
-			if = {
-				limit = {
-					country_exists = AUS
-					AUS = {
-						OR = {
-							owns_state = 4
-							owns_state = 152
-							owns_state = 153
-						}
-					}
+			add_state_core = 4
+			add_state_core = 152
+			add_state_core = 153
+			52 = {
+				add_extra_state_shared_building_slots = 6
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
 				}
-				AUS = {
-					country_event = germany.28
-				}
-				# REVISIT Add Czech claims, possibly
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}				
 			}
-			if = {
-				limit = {
-					4 = {
-						owner = {
-							NOT = {
-								tag = AUS
-							}
-							NOT = {
-								is_in_faction_with = ROOT
-							}
-						}
-					}
+			53 = {
+				add_extra_state_shared_building_slots = 6
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
 				}
-				add_state_core = 4
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}	
 			}
-			if = {
-				limit = {
-					152 = {
-						owner = {
-							NOT = {
-								tag = AUS
-							}
-							NOT = {
-								is_in_faction_with = ROOT
-							}
-						}
-					}
+			54 = {
+				add_extra_state_shared_building_slots = 6
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
 				}
-				add_state_core = 152
-			}
-			if = {
-				limit = {
-					153 = {
-						owner = {
-							NOT = {
-								tag = AUS
-							}
-							NOT = {
-								is_in_faction_with = ROOT
-							}
-						}
-					}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
 				}
-				add_state_core = 153
 			}
+#n			if = {
+#n				limit = {
+#n					country_exists = AUS
+#n					AUS = {
+#n						OR = {
+#n							owns_state = 4
+#n							owns_state = 152
+#n							owns_state = 153
+#n						}
+#n					}
+#n				}
+#n				AUS = {
+#n					country_event = germany.28
+#n				}
+#n				# REVISIT Add Czech claims, possibly
+#n			}
+#n			if = {
+#n				limit = {
+#n					4 = {
+#n						owner = {
+#n							NOT = {
+#n								tag = AUS
+#n							}
+#n							NOT = {
+#n								is_in_faction_with = ROOT
+#n							}
+#n						}
+#n					}
+#n				}
+#n				add_state_core = 4
+#n			}
+#n			if = {
+#n				limit = {
+#n					152 = {
+#n						owner = {
+#n							NOT = {
+#n								tag = AUS
+#n							}
+#n							NOT = {
+#n								is_in_faction_with = ROOT
+#n							}
+#n						}
+#n					}
+#n				}
+#n				add_state_core = 152
+#n			}
+#n			if = {
+#n				limit = {
+#n					153 = {
+#n						owner = {
+#n							NOT = {
+#n								tag = AUS
+#n							}
+#n							NOT = {
+#n								is_in_faction_with = ROOT
+#n							}
+#n						}
+#n					}
+#n				}
+#n				add_state_core = 153
+#n			}
 		}
 	}
 
@@ -1249,17 +1292,32 @@ focus_tree = {
 			}
 		}	
 		completion_reward = {
-			188 = { add_claim_by = GER }
-			85 = { add_claim_by = GER }
-			86 = { add_claim_by = GER }
-			add_named_threat = { threat = 3 name = GER_demand_memel_threat }
-			if = {
-				limit = {
-					LIT = { owns_state = 188 }
+			#n: 1 mil, 2 civ
+			5 = {
+				52 = {
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}				
 				}
-				LIT = {
-					country_event = { id = baltic.4 }
-				}
+#n			188 = { add_claim_by = GER }
+#n			85 = { add_claim_by = GER }
+#n			86 = { add_claim_by = GER }
+#n			add_named_threat = { threat = 3 name = GER_demand_memel_threat }
+#n			if = {
+#n				limit = {
+#n					LIT = { owns_state = 188 }
+#n				}
+#n				LIT = {
+#n					country_event = { id = baltic.4 }
+#n				}
 			}
 		}
 	}
@@ -1607,49 +1665,59 @@ focus_tree = {
 			factor = 10
 		}	
 		completion_reward = {
-			if =  {
-				limit = {
-					OR = {
-						has_war_with = ENG
-						has_war_with = FRA
-						CZE = { is_puppet = yes }
-						CZE = { has_war_with = ENG }
-						CZE = { has_war_with = FRA }
-					}
-					CZE = { owns_state = 69 }
-				}
-				CZE = {
-					country_event = {
-						id = germany.122
-					}
-				}
+			#n: 1 civ, 4 slots
+			add_state_core = 69
+			68 = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}				
 			}
-			if = {
-				limit = {
-					NOT = { has_war_with = ENG }
-					NOT = { has_war_with = FRA }
-					CZE = { is_puppet = no }
-					CZE = { NOT = { has_war_with = ENG } }
-					CZE = { owns_state = 69 }
-				}
-				ENG = {
-					country_event = germany.40
-				}
-				add_named_threat = { threat = 2 name = GER_demand_sudetenland_threat }
-			}
-			69 = {
-				add_claim_by = GER
-			}
-			if = {
-				limit = {
-					NOT = {
-						CZE = { owns_state = 69 }
-					}
-				}
-				69 = {
-					add_claim_by = GER
-				}
-			}
+#n			if =  {
+#n				limit = {
+#n					OR = {
+#n						has_war_with = ENG
+#n						has_war_with = FRA
+#n						CZE = { is_puppet = yes }
+#n						CZE = { has_war_with = ENG }
+#n						CZE = { has_war_with = FRA }
+#n					}
+#n					CZE = { owns_state = 69 }
+#n				}
+#n				CZE = {
+#n					country_event = {
+#n						id = germany.122
+#n					}
+#n				}
+#n			}
+#n			if = {
+#n				limit = {
+#n					NOT = { has_war_with = ENG }
+#n					NOT = { has_war_with = FRA }
+#n					CZE = { is_puppet = no }
+#n					CZE = { NOT = { has_war_with = ENG } }
+#n					CZE = { owns_state = 69 }
+#n				}
+#n				ENG = {
+#n					country_event = germany.40
+#n				}
+#n				add_named_threat = { threat = 2 name = GER_demand_sudetenland_threat }
+#n			}
+#n			69 = {
+#n				add_claim_by = GER
+#n			}
+#n			if = {
+#n				limit = {
+#n					NOT = {
+#n						CZE = { owns_state = 69 }
+#n					}
+#n				}
+#n				69 = {
+#n					add_claim_by = GER
+#n				}
+#n			}
 		}
 	}
 
@@ -1668,7 +1736,7 @@ focus_tree = {
 		}
 		available = {
 			is_puppet = no
-			owns_state = 69
+#n			owns_state = 69
 		}
 		x = 14
 		y = 3
@@ -1677,17 +1745,18 @@ focus_tree = {
 			factor = 10
 		}	
 		completion_reward = {
-			HUN = {
-				country_event = { id = germany.51 }
-				add_opinion_modifier = { target = GER modifier = GER_first_vienna_award_GER }
-			}
-			every_country = {
-				limit = { 
-					is_faction_leader = yes
-					NOT = { tag = GER }
-				}
-				reverse_add_opinion_modifier = { target = HUN modifier = GER_second_vienna_award_other }
-			}
+			#n: there's no point in that focus in this mod
+#n			HUN = {
+#n				country_event = { id = germany.51 }
+#n				add_opinion_modifier = { target = GER modifier = GER_first_vienna_award_GER }
+#n			}
+#n			every_country = {
+#n				limit = { 
+#n					is_faction_leader = yes
+#n					NOT = { tag = GER }
+#n				}
+#n				reverse_add_opinion_modifier = { target = HUN modifier = GER_second_vienna_award_other }
+#n			}
 		}
 	}
 
@@ -1723,17 +1792,62 @@ focus_tree = {
 
 
 		completion_reward = {
+			#n: 7 mil + 20 civ + 7 slots
+			add_state_core = 9
+			add_state_core = 74
+			add_state_core = 75
 			
-			if = {
-				limit = { country_exists = CZE }
-				set_global_flag = end_of_czechoslovakia
-				CZE = { country_event = germany.53 }
+			67 = {
+				add_extra_state_shared_building_slots = 5
+				add_building_construction = {
+					type = industrial_complex
+					level = 5
+					instant_build = yes
+				}				
 			}
-			if = {
-				limit = { NOT = { country_exists = CZE } }
-				country_event = { id = germany.55 hours = 6 }
+			66 = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}				
 			}
-			add_named_threat = { threat = 3 name = GER_end_of_czechoslovakia }
+			52 = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}			
+			}
+			52 = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}				
+			}
+			52 = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}				
+			}
+			
+#n			if = {
+#n				limit = { country_exists = CZE }
+#n				set_global_flag = end_of_czechoslovakia
+#n				CZE = { country_event = germany.53 }
+#n			}
+#n			if = {
+#n				limit = { NOT = { country_exists = CZE } }
+#n				country_event = { id = germany.55 hours = 6 }
+#n			}
+#n			add_named_threat = { threat = 3 name = GER_end_of_czechoslovakia }
 		}
 	}
 
@@ -2634,6 +2748,7 @@ focus_tree = {
 			YUG = { owns_state = 102 }
 			has_army_manpower = { size > 749999 } #ca 80 div
 			NOT = { YUG = { is_puppet_of = GER } }
+			hidden_trigger = { always = no } #n: turned off
 		}
 		cancel = {
 			OR = {
@@ -3047,7 +3162,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = GER_fate_of_greece
+		id = GER_z_of_greece
 		prerequisite = { focus = GER_second_ljubljana_award }
 		icon = GFX_goal_demand_sudetenland
 		available = {
